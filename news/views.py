@@ -5,9 +5,12 @@ from django.core.paginator import Paginator
 from .models import Post, Category,  Comment
 from datetime import datetime
 from django.shortcuts import redirect
+from django.template.loader import render_to_string
 
 from .filters import PostFilter  # импортируем недавно написанный фильтр
 from .forms import PostForm
+
+from .tasks import send_mail
 
 
 class PostList(ListView):

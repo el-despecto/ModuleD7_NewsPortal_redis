@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 #    'appointments.apps.AppointmentConfig',
 #    'django_apscheduler',
+    'celery',
 ]
 DEFAULT_FROM_EMAIL = 'd3spector@yandex.ru'
 
@@ -178,3 +179,9 @@ MANAGERS =[
 ]
 
 SERVER_EMAIL = 'd3spector@yandex.ru'
+
+CELERY_BROKER_URL = 'redis://:YDlRVrIepF6OieU3PDsVS7M1ZfSBERf8@redis-14673.c299.asia-northeast1-1.gce.cloud.redislabs.com:14673/0' #указывает на URL брокера сообщений (Redis). По умолчанию он находится на порту 6379.
+CELERY_RESULT_BACKEND = 'redis://:YDlRVrIepF6OieU3PDsVS7M1ZfSBERf8@redis-14673.c299.asia-northeast1-1.gce.cloud.redislabs.com:14673/0' # указывает на хранилище результатов выполнения задач.
+CELERY_ACCEPT_CONTENT = ['application/json'] # допустимый формат данных.
+CELERY_TASK_SERIALIZER = 'json' #метод сериализации задач
+CELERY_RESULT_SERIALIZER = 'json' #метод сериализации результатов.
