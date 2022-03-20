@@ -5,7 +5,6 @@ from celery.schedules import crontab
 
 @shared_task
 def send_mail(sub_username, sub_useremail, html_content):
-    print('Таска_одно_письмо - старт')
     msg = EmailMultiAlternatives(
         subject=f'Здравствуйте, {sub_username}. Новая статья в вашем разделе!',
         from_email='d3spector@yandex.ru',
